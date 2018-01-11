@@ -10,19 +10,39 @@ class Images extends Component {
     }
 
     // render images upon load of page
-    componentDidMount() {
-        
-    }
-
     displayImages = () => {
         let imgTags = this.state.images.map((image) => {
-            return <img src={image} height="200"/>
+            return <img src={image} height="200" onClick={this.shuffleImages} />
         });
 
         return imgTags;
     }
 
     // shuffle and re-render images upon clicking an image
+    shuffleImages = () => {
+            let images = this.state.images;
+            let numImages = this.state.images.length;
+            let temp;
+            let index;
+        
+            // While there are elements in the array
+            while (numImages > 0) {
+        // Pick a random index
+                index = Math.floor(Math.random() * numImages);
+        // Decrease numImages by 1
+                numImages--;
+        // And swap the last element with it
+                temp = images[numImages];
+                images[numImages] = images[index];
+                images[index] = temp;
+            }
+
+            //change state to newly shuffled images
+            this.setState({images: images});
+
+            // re-render images
+            this.displayImages();        
+    }
 
     render () {
         return (
