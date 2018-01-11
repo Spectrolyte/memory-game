@@ -1,0 +1,11 @@
+.gif {
+    border: 3px solid #000000;
+}
+
+.gif:hover {
+    border-color: pink;
+}
+
+#paw-icon {
+    margin: 0px 20px;
+}

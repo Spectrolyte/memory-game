@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import gifs from "../../utils/API.js"
+import "./Game.css";
 
 // create component that will render images
 
@@ -11,14 +12,17 @@ class Images extends Component {
         highScore: 0
     }
 
-    componentDidMount () {
-        // console.log(this.state.images[0].image);
+    imgStyles = {
+        width: "220px",
+        maxWidth: "100%",
+        height: "200px",
+        maxHeight: "auto"
     }
 
     // render images upon load of page
     displayImages = () => {
         let imgTags = this.state.images.map((element) => {
-            return <img className="col s3" key={element.id} src={element.image} height="200" width="200" onClick={() => this.shuffleImages(element.id)} clicked="" alt="pusheen-gif" />
+            return <div className="col s3"><img className="gif" style={this.imgStyles} key={element.id} src={element.image} onClick={() => this.shuffleImages(element.id)} clicked="" alt="pusheen-gif" /></div>
         });
 
         return imgTags;
@@ -61,12 +65,16 @@ class Images extends Component {
         });
 
         // if image was clicked, check against high score then reset current score to 0
+            // reset all clicked props to false
         // else, change clicked to true and increment score
         if (clickedImage[0].clicked) {
             if (this.state.score > this.state.highScore) {
                 this.setState({highScore: this.state.score});
             }
             this.setState({score: 0});
+            this.state.images.forEach((element) => {
+                return element.clicked = false;
+            });
         }
         else {
             clickedImage[0].clicked = true;
@@ -76,10 +84,13 @@ class Images extends Component {
 
     render () {
         return (
-            <div className="row center-align">
-                <h3>Current Score: {this.state.score}</h3>
-                <h3>High Score: {this.state.highScore}</h3>
-                {this.displayImages()}
+            <div>
+                <div className="row center-align">
+                    <h4>Current Score: {this.state.score} <img id="paw-icon" alt="paw-icon" src="https://cdn0.iconfinder.com/data/icons/free-android-icons-animals/24/cat_track-24.png" /> High Score: {this.state.highScore}</h4>
+                </div>
+                <div className="row center-align">
+                    {this.displayImages()}
+                </div>
             </div>
         )
     }
