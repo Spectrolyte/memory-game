@@ -34,4 +34,49 @@ export default [
         image: "https://media.giphy.com/media/SsB9Psi75QC0o/giphy.gif",
         clicked: false
     },
+    {
+        id: 8,
+        image: "https://media.giphy.com/media/naE5JoMQE42ti/giphy.gif",
+        clicked: false
+    },
+    {
+        id: 9,
+        image: "https://media.giphy.com/media/trdlr0fQic57W/giphy.gif",
+        clicked: false
+    },
+    {
+        id: 10,
+        image: "https://media.giphy.com/media/qbrWtgLgvksLu/giphy.gif",
+        clicked: false
+    },
+    {
+        id: 11,
+        image: "https://media.giphy.com/media/mJ1YXW4tGKGbu/giphy.gif",
+        clicked: false
+    },
+    {
+        id: 12,
+        image: "https://media.giphy.com/media/9DWwxB3Pdpcg8/giphy.gif",
+        clicked: false
+    },
+    {
+        id: 13,
+        image: "https://media.giphy.com/media/Ix1uak11Q6MW4/giphy.gif",
+        clicked: false
+    },
+    {
+        id: 14,
+        image: "https://media.giphy.com/media/aydEd3UIYy0dG/giphy.gif",
+        clicked: false
+    },
+    {
+        id: 15,
+        image: "https://media.giphy.com/media/IMfi5ugpf3W1y/giphy.gif",
+        clicked: false
+    },
+    {
+        id: 16,
+        image: "https://media.giphy.com/media/5LDhVsdZgtYKQ/giphy.gif",
+        clicked: false
+    }
 ];

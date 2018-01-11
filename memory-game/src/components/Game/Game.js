@@ -7,7 +7,8 @@ class Images extends Component {
     // state contains array of links that will serve as src attrs and user score
     state = {
         images: gifs,
-        score: 0
+        score: 0,
+        highScore: 0
     }
 
     componentDidMount () {
@@ -17,7 +18,7 @@ class Images extends Component {
     // render images upon load of page
     displayImages = () => {
         let imgTags = this.state.images.map((element) => {
-            return <img key={element.id} src={element.image} height="200" width="220" onClick={() => this.shuffleImages(element.id)} clicked="" alt="pusheen-gif" />
+            return <img className="col s3" key={element.id} src={element.image} height="200" width="200" onClick={() => this.shuffleImages(element.id)} clicked="" alt="pusheen-gif" />
         });
 
         return imgTags;
@@ -59,9 +60,12 @@ class Images extends Component {
             return element.id === id
         });
 
-        // if image was clicked, set score to 0
+        // if image was clicked, check against high score then reset current score to 0
         // else, change clicked to true and increment score
         if (clickedImage[0].clicked) {
+            if (this.state.score > this.state.highScore) {
+                this.setState({highScore: this.state.score});
+            }
             this.setState({score: 0});
         }
         else {
@@ -72,8 +76,9 @@ class Images extends Component {
 
     render () {
         return (
-            <div>
+            <div className="row center-align">
                 <h3>Current Score: {this.state.score}</h3>
+                <h3>High Score: {this.state.highScore}</h3>
                 {this.displayImages()}
             </div>
         )

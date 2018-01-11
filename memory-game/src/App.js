@@ -5,7 +5,7 @@ import Images from "./components/Game/Game.js";
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="App container">
         <h1>Memory Game</h1>
         <Images />
       </div>
