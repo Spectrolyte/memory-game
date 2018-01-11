@@ -58,12 +58,22 @@ class Images extends Component {
         let clickedImage = this.state.images.filter((element) => {
             return element.id === id
         });
-        console.log(clickedImage);
+
+        // if image was clicked, set score to 0
+        // else, change clicked to true and increment score
+        if (clickedImage[0].clicked) {
+            this.setState({score: 0});
+        }
+        else {
+            clickedImage[0].clicked = true;
+            this.setState({score: this.state.score + 1});
+        }
     }
 
     render () {
         return (
             <div>
+                <h3>Current Score: {this.state.score}</h3>
                 {this.displayImages()}
             </div>
         )
